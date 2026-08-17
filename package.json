@@ -1,0 +1,6 @@
+{
+  "name": "botonera",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Botonera — an offline-first arcade soundboard PWA with configurable buttons and sounds, defaults driven by a plain-JSON map (castellano argentino UI, no build step)."
+}

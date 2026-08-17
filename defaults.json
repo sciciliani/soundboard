@@ -1,0 +1,25 @@
+{
+  "_readme": "Este es el mapa editable de botones por defecto. Editá label/desc/color/file libremente, sin tocar el codigo. 'file' es una ruta relativa a este JSON, normalmente dentro de la carpeta audios/. 'color' es cualquier color CSS. El orden de las entradas define el orden de los botones. Los cambios se aplican la proxima vez que se carga el sitio, o al toque con 'Restablecer valores por defecto' del menu.",
+  "buttons": [
+    { "id": "perfect-fart", "label": "PEDO", "desc": "Pedo perfecto", "color": "#db273c", "file": "audios/perfect-fart.mp3" },
+    { "id": "baby-laughing-meme", "label": "BEBÉ RIÉNDOSE", "desc": "Meme del bebé que se ríe", "color": "#ff8a3d", "file": "audios/baby-laughing-meme.mp3" },
+    { "id": "emotional-damage-meme", "label": "DAÑO EMOCIONAL", "desc": "Meme de daño emocional", "color": "#ffcc4d", "file": "audios/emotional-damage-meme.mp3" },
+    { "id": "gunshot", "label": "DISPARO", "desc": "Efecto de disparo", "color": "#4dd68a", "file": "audios/gunshot.mp3" },
+    { "id": "wah-wah-sound-effect", "label": "WAH WAH", "desc": "Trombón triste", "color": "#3dbeff", "file": "audios/wah-wah-sound-effect.mp3" },
+    { "id": "badumts", "label": "BADUM TSS", "desc": "Redoble de chiste", "color": "#7c5cff", "file": "audios/badumts.mp3" },
+    { "id": "aplausos", "label": "APLAUSOS", "desc": "Sonido de aplausos", "color": "#ff5cb8", "file": "audios/aplausos.mp3" },
+    { "id": "risas-enlatadas-tv", "label": "RISAS ENLATADAS", "desc": "Risas enlatadas de TV", "color": "#8d99a6", "file": "audios/risas-enlatadas-tv.mp3" },
+    { "id": "ahi-lo-tenes-al-pelotudo", "label": "AHÍ LO TENÉS", "desc": "Ahí lo tenés al pelotudo", "color": "#db273c", "file": "audios/ahi-lo-tenes-al-pelotudo_TlDTm41.mp3" },
+    { "id": "cucu-cucurella-cucu", "label": "CUCURELLA", "desc": "Cucú, cucurella, cucú", "color": "#ff8a3d", "file": "audios/cucu-cucurella-cucu.mp3" },
+    { "id": "hay-alguien-ahi-con-vida-larga", "label": "HAY ALGUIEN AHÍ", "desc": "Hay alguien ahí, con vida... larga", "color": "#3dbeff", "file": "audios/hay-alguien-ahi-con-vida-larga.mp3" },
+    { "id": "himno-argentino", "label": "HIMNO ARGENTINO", "desc": "Fragmento del himno argentino", "color": "#7c5cff", "file": "audios/himno-argentino.mp3" },
+    { "id": "hola-sofi", "label": "HOLA SOFI", "desc": "Hola Sofi", "color": "#ff5cb8", "file": "audios/hola-sofi.mp3" },
+    { "id": "me-aburro", "label": "ME ABURRO", "desc": "Me aburro", "color": "#8d99a6", "file": "audios/me-aburro_1.mp3" },
+    { "id": "no-es-mi-problema-es-tu-problema", "label": "NO ES MI PROBLEMA", "desc": "No es mi problema, es tu problema", "color": "#db273c", "file": "audios/no-es-mi-problema-es-tu-problema.mp3" },
+    { "id": "no-me-quemes", "label": "NO ME QUEMES", "desc": "No me quemes", "color": "#ff8a3d", "file": "audios/no-me-quemes.mp3" },
+    { "id": "no-nos-importa", "label": "NO NOS IMPORTA", "desc": "No nos importa", "color": "#ffcc4d", "file": "audios/no-nos-importa.mp3" },
+    { "id": "por-fin-apareciste-malnacido-picoro", "label": "POR FIN APARECISTE", "desc": "Por fin apareciste, malnacido picoro", "color": "#4dd68a", "file": "audios/por-fin-apareciste-malnacido-picoro.mp3" },
+    { "id": "callate-mp", "label": "CALLATE", "desc": "Callate la boca", "color": "#3dbeff", "file": "audios/callate-mp.mp3" },
+    { "id": "y-se-marcho", "label": "Y SE MARCHÓ", "desc": "Y se marchó...", "color": "#7c5cff", "file": "audios/y-se-marcho.mp3" }
+  ]
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+<title>Botonera</title>
+<meta name="description" content="Botonera arcade offline — botones configurables con sonidos personalizados." />
+<meta name="theme-color" content="#150f1f" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Botonera" />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="icons/icon-192.png" />
+<link rel="apple-touch-icon" href="icons/icon-192.png" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <h1 class="logo">🕹️ <span>Botonera</span></h1>
+  <div class="topbar-actions">
+    <button id="editToggle" class="chip" aria-pressed="false">✏️ Editar</button>
+    <button id="menuToggle" class="chip icon-only" aria-label="Menú">⋮</button>
+  </div>
+</header>
+
+<nav id="menuPanel" class="menu-panel hidden">
+  <button id="addBtnAction" class="menu-item">➕ Agregar botón</button>
+  <button id="exportAction" class="menu-item">⬇️ Exportar configuración</button>
+  <button id="importAction" class="menu-item">⬆️ Importar configuración</button>
+  <button id="resetAction" class="menu-item danger">♻️ Restablecer valores por defecto</button>
+  <input type="file" id="importFile" accept="application/json" class="hidden" />
+</nav>
+
+<main id="board" class="board" aria-live="polite"></main>
+
+<p class="hint" id="hint">Tocá un botón para reproducirlo;</p>
+
+
+<!-- Edit modal -->
+<div id="modalOverlay" class="modal-overlay hidden">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <h2 id="modalTitle">Configurar botón</h2>
+
+    <label class="field">
+      <span>Nombre</span>
+      <input id="fieldLabel" type="text" maxlength="24" placeholder="por ej. PEDO" />
+    </label>
+
+    <label class="field">
+      <span>Descripción</span>
+      <input id="fieldDesc" type="text" maxlength="60" placeholder="por ej. Pedo clásico" />
+    </label>
+
+    <label class="field">
+      <span>Color</span>
+      <div class="swatches" id="swatches"></div>
+    </label>
+
+    <div class="field">
+      <span>Fuente del sonido</span>
+      <div class="sound-row">
+        <select id="fieldSource">
+          <option value="bundled">📀 Sonido incluido (de defaults.json)</option>
+          <option value="synth">🔊 Sintetizador integrado</option>
+          <option value="local">📂 Archivo en este dispositivo</option>
+          <option value="url">🔗 URL de internet</option>
+        </select>
+        <button id="testSoundBtn" type="button" class="chip">▶️ Probar</button>
+      </div>
+
+      <div id="sourceBundled" class="source-panel">
+        <select id="fieldBundled"></select>
+      </div>
+
+      <div id="sourceSynth" class="source-panel">
+        <select id="fieldSynth">
+          <option value="fart">🎺 Pedo</option>
+          <option value="burp">🤢 Eructo</option>
+          <option value="boing">🌀 Resorte</option>
+          <option value="honk">📯 Bocinazo</option>
+          <option value="laser">🔫 Láser</option>
+          <option value="airhorn">📢 Bocina de cancha</option>
+          <option value="buzzer">⚠️ Chicharra</option>
+          <option value="drumroll">🥁 Redoble de tambor</option>
+        </select>
+      </div>
+
+      <div id="sourceLocal" class="source-panel">
+        <button id="pickLocalBtn" type="button" class="chip">📂 Elegir archivo en este dispositivo</button>
+        <input type="file" id="fieldLocalFile" accept="audio/*" class="hidden" />
+        <p class="file-status" id="localStatus">No elegiste ningún archivo. No se sube ni se guarda nada — el archivo queda solo en tu dispositivo.</p>
+      </div>
+
+      <div id="sourceUrl" class="source-panel">
+        <input id="fieldUrl" type="url" inputmode="url" placeholder="https://ejemplo.com/sonido.mp3" />
+        <p class="file-status">Solo se guarda el link. El audio se reproduce directamente desde internet, así que este botón necesita conexión para funcionar.</p>
+      </div>
+    </div>
+
+    <div class="modal-actions">
+      <button id="deleteBtnAction" class="btn danger">🗑️ Eliminar</button>
+      <button id="resetBtnAction" class="btn subtle hidden">↩️ Restablecer por defecto</button>
+      <div class="spacer"></div>
+      <button id="cancelBtnAction" class="btn subtle">Cancelar</button>
+      <button id="saveBtnAction" class="btn primary">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<div id="preloadBar" class="preload-bar hidden">
+  <span class="spinner" aria-hidden="true"></span>
+  <span id="preloadText">Precargando sonidos...</span>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="js/synth.js"></script>
+<script src="js/db.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
