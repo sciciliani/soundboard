@@ -2,7 +2,7 @@
    the bundled audio files are discovered dynamically from defaults.json
    so editing that file never requires touching this service worker. */
 
-var CACHE = "botonera-v4";
+var CACHE = "botonera-v5";
 var CORE_ASSETS = [
   "./",
   "./index.html",

@@ -435,4 +435,28 @@ body {
   box-shadow: 0 10px 24px rgba(0,0,0,0.4);
 }
 
+.fab-stop {
+  position: fixed;
+  right: calc(18px + env(safe-area-inset-right));
+  bottom: calc(18px + env(safe-area-inset-bottom));
+  z-index: 60;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: radial-gradient(circle at 38% 30%, rgba(255,255,255,0.35), transparent 45%), var(--danger);
+  color: #2a0810;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.45), inset 0 -4px 8px rgba(0,0,0,0.3);
+  transition: transform 70ms ease-out, box-shadow 70ms ease-out;
+}
+.fab-stop:active {
+  transform: translateY(3px) scale(0.96);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4), inset 0 -4px 8px rgba(0,0,0,0.3);
+}
+
 .hidden { display: none !important; }

@@ -325,6 +325,10 @@
     delete state.activeSounds[id];
   }
 
+  function stopAllSounds() {
+    Object.keys(state.activeSounds).forEach(stopActive);
+  }
+
   function playAudioEl(cfg, src, revokeUrl, onerror) {
     var audio = new Audio(src);
     state.activeSounds[cfg.id] = { kind: "audio", el: audio, revoke: revokeUrl || null };
@@ -337,7 +341,7 @@
   }
 
   function playButton(cfg, btnEl) {
-    stopActive(cfg.id); // pressing again restarts the same button instead of layering copies
+    stopAllSounds(); // only one sound plays at a time; a new press cuts off whatever else was playing
 
     if (btnEl) {
       btnEl.classList.add("pressed");
@@ -668,7 +672,7 @@
         var buttons = payload.buttons || payload;
         if (!Array.isArray(buttons)) throw new Error("bad format");
 
-        Object.keys(state.activeSounds).forEach(stopActive);
+        stopAllSounds();
         state.buttons = buttons.map(function (b) {
           return {
             id: b.id || uid(),
@@ -697,7 +701,7 @@
   function resetToDefaults() {
     if (!confirm("¿Restablecer todos los botones a los valores por defecto? Esto elimina los botones y personalizaciones que hayas hecho.")) return;
     fetchDefaults().then(function (list) {
-      Object.keys(state.activeSounds).forEach(stopActive);
+      stopAllSounds();
       BotoneraDB.clearAll().finally(function () {
         state.sessionLocalFiles = {};
         localStorage.removeItem(STORAGE_KEY);
@@ -782,6 +786,12 @@
       if (e.target === els.modalOverlay) closeEditor();
     });
 
+    els.stopAllBtn.addEventListener("click", function () {
+      stopAllSounds();
+      vibrate(15);
+      toast("Sonidos detenidos");
+    });
+
     document.addEventListener("keydown", onKeyDown);
     document.addEventListener("pointerdown", Synth.unlock, { once: true });
   }
@@ -825,6 +835,7 @@
     els.toast = $("toast");
     els.preloadBar = $("preloadBar");
     els.preloadText = $("preloadText");
+    els.stopAllBtn = $("stopAllBtn");
 
     bindEvents();
     registerServiceWorker();
